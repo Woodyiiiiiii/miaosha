@@ -20,20 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 @MapperScan("com.miaoshaproject.dao")
 public class App {
 
-    @Autowired
-    private UserDOMapper userDOMapper;
-
-    @RequestMapping("/")
-    public String hello() {
-
-        UserDO userDO = userDOMapper.selectByPrimaryKey(1);
-        if (userDO == null) {
-            return "用户对象不存在";
-        }else {
-            return userDO.getName();
-        }
-    }
-
     public static void main( String[] args ) {
         SpringApplication.run(App.class, args); // 此行代码作用是如果启动APP类，则启动Web容器
     }
