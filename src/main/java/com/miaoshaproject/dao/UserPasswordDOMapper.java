@@ -1,5 +1,6 @@
 package com.miaoshaproject.dao;
 
+import com.miaoshaproject.dataobject.UserDO;
 import com.miaoshaproject.dataobject.UserPasswordDO;
 
 public interface UserPasswordDOMapper {
