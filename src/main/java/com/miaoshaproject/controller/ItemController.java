@@ -60,19 +60,19 @@ public class ItemController extends BaseController {
 
     }
 
-//    //商品列表页面浏览
-//    @RequestMapping(value = "/list",method = {RequestMethod.GET})
-//    @ResponseBody
-//    public CommonReturnType listItem(){
-//        List<ItemModel> itemModelList = itemService.listItem();
-//
-//        //使用stream apiJ将list内的itemModel转化为ITEMVO;
-//        List<ItemVO> itemVOList =  itemModelList.stream().map(itemModel -> {
-//            ItemVO itemVO = this.convertVOFromModel(itemModel);
-//            return itemVO;
-//        }).collect(Collectors.toList());
-//        return CommonReturnType.create(itemVOList);
-//    }
+    //商品列表页面浏览
+    @RequestMapping(value = "/list",method = {RequestMethod.GET})
+    @ResponseBody
+    public CommonReturnType listItem(){
+        List<ItemModel> itemModelList = itemService.listItem();
+
+        //使用stream api将list内的itemModel转化为itemVO;
+        List<ItemVO> itemVOList =  itemModelList.stream().map(itemModel -> {
+            ItemVO itemVO = this.convertVOFromModel(itemModel);
+            return itemVO;
+        }).collect(Collectors.toList());
+        return CommonReturnType.create(itemVOList);
+    }
 
 
 
@@ -82,15 +82,15 @@ public class ItemController extends BaseController {
         }
         ItemVO itemVO = new ItemVO();
         BeanUtils.copyProperties(itemModel,itemVO);
-//        if(itemModel.getPromoModel() != null){
-//            //有正在进行或即将进行的秒杀活动
-//            itemVO.setPromoStatus(itemModel.getPromoModel().getStatus());
-//            itemVO.setPromoId(itemModel.getPromoModel().getId());
-//            itemVO.setStartDate(itemModel.getPromoModel().getStartDate().toString(DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss")));
-//            itemVO.setPromoPrice(itemModel.getPromoModel().getPromoItemPrice());
-//        }else{
-//            itemVO.setPromoStatus(0);
-//        }
+        if(itemModel.getPromoModel() != null){
+            //有正在进行或即将进行的秒杀活动
+            itemVO.setPromoStatus(itemModel.getPromoModel().getStatus());
+            itemVO.setPromoId(itemModel.getPromoModel().getId());
+            itemVO.setStartDate(itemModel.getPromoModel().getStartDate().toString(DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss")));
+            itemVO.setPromoPrice(itemModel.getPromoModel().getPromoItemPrice());
+        }else{
+            itemVO.setPromoStatus(0);
+        }
         return itemVO;
     }
 
