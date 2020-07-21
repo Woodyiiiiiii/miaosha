@@ -124,6 +124,12 @@
 
     <!-- mybatis-generator插件，要放在与pluginManagement同级 -->
     <plugins>
+
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+
       <!-- 引入Mybatis自动生成文件的插件 -->
       <plugin>
         <groupId>org.mybatis.generator</groupId>
