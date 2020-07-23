@@ -4,12 +4,13 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 /**
  * 不能直接向前端返回UserDO，MVC思想是返回一个Model模型
  * 核心领域用户模型
  */
-public class UserModel {
+public class UserModel implements Serializable {
 
     private Integer id;
     @NotBlank(message = "用户名不能为空") // != null && !empty
