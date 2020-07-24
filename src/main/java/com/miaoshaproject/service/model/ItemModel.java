@@ -3,12 +3,13 @@ package com.miaoshaproject.service.model;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * 商品核心领域类，在设计数据库前设计这个
  */
-public class ItemModel {
+public class ItemModel implements Serializable {
 
     private Integer id;
 
