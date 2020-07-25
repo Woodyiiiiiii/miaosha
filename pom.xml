@@ -92,6 +92,12 @@
       <version>18.0</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.apache.rocketmq</groupId>
+      <artifactId>rocketmq-client</artifactId>
+      <version>4.3.0</version>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -178,7 +184,7 @@
           <!--允许移动生成的文件-->
           <verbose>true</verbose>
           <!--允许自动覆盖文件-->
-          <overwrite>false</overwrite>
+          <overwrite>true</overwrite>
           <configurationFile>
             src/main/resources/mybatis-generator.xml
           </configurationFile>
